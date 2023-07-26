@@ -8,7 +8,7 @@ import (
 )
 
 var GITHUB_TOKEN = os.Getenv("GITHUB_TOKEN")
-var requestOtions = &grequests.RequestOptions{Auth: []string{GITHUB_TOKEN, "x-oauth-basic"}}
+var requestOptions = &grequests.RequestOptions{Auth: []string{GITHUB_TOKEN, "x-oauth-basic"}}
 
 type Repo struct {
 	ID       int    `json:"id"`
@@ -19,7 +19,7 @@ type Repo struct {
 }
 
 func getStats(url string) *grequests.Response {
-	res, err := grequests.Get(url, requestOtions)
+	res, err := grequests.Get(url, requestOptions)
 
 	if err != nil {
 		log.Fatalln("Unable to make request: ", err)
